@@ -2,6 +2,9 @@ var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var expressSession = require("express-session");
 var express = require("express");
+var http = require("http");
+var path = require("path");
+
 
 var passport = require("passport");
 var passportHttp = require("passport-http");
@@ -16,6 +19,8 @@ app.engine(".html", require("ejs").__express);
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
+
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(expressSession({
@@ -26,6 +31,8 @@ app.use(expressSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(express.static(path.join(__dirname, "public")));
 
 // /db
 var dbCollectioin = db.collections.users;

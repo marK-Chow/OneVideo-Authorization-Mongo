@@ -1,3 +1,5 @@
+var db = require("./db.js");
+
 _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g
 };
@@ -16,9 +18,9 @@ $(document).ready(function () {
 
 var VideoModel = Backbone.Model.extend({
     defaults: {
-        "id": 0,
-        "vid": "09R8_2nJtjg",
-        "vname": "Sugar"
+        "id": "",
+        "vid": "",
+        "vname": ""
     },
     getVid: function () {
         return this.get("vid");
@@ -32,7 +34,11 @@ var VideoCollection = Backbone.Collection.extend({
 });
 
 //demo data
-var video1 = new VideoModel();
+var video1 = new VideoModel({
+    "id": 0,
+    "vid": "09R8_2nJtjg",
+    "vname": "Sugar"
+});
 var video2 = new VideoModel({
     "id": 1,
     "vid": "bXlrqQKbjSM",
@@ -135,3 +141,5 @@ router.on("route:collection", function () {
 
 
 Backbone.history.start();
+
+
