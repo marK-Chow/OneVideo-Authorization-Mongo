@@ -1,2 +1,2 @@
 # OneVideo-Authorization-Mongo
-A small backbone project.
+A backbone project with mongodb. You should install mongodb before starting this project.
