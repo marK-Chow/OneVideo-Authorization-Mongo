@@ -1,5 +1,3 @@
-var db = require("./db.js");
-
 _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g
 };
@@ -15,6 +13,8 @@ $(document).ready(function () {
 
     });
 });
+
+
 
 var VideoModel = Backbone.Model.extend({
     defaults: {
